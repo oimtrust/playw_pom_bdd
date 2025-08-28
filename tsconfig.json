@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@data/*": ["data/*"],
+      "@features/*": ["features/*"],
+      "@locator/*": ["locator/*"],
+      "@page/*": ["page/*"]
+    }
+  }
+}
