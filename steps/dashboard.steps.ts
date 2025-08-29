@@ -57,11 +57,11 @@ Then('I should see remove from cart button', async ({ dashboardPage }) => {
 });
 
 Then('the item should be removed from cart', async ({ dashboardPage }) => {
-  await expect(dashboardPage.addToCartButton).toBeVisible();
+  await expect(dashboardPage.firstAddToCartButton).toBeVisible();
 });
 
 Then('I should see add to cart button', async ({ dashboardPage }) => {
-  await expect(dashboardPage.addToCartButton).toBeVisible();
+  await expect(dashboardPage.firstAddToCartButton).toBeVisible();
 });
 
 Then('I should see cart icon with badge', async ({ dashboardPage }) => {

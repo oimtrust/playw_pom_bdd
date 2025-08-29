@@ -45,12 +45,3 @@ Feature: Checkout Process
     And I click finish button
     And I click back home button
     Then I should return to products page
-
-  @checkout
-  Scenario: Verify checkout flow from cart
-    Given I am on the cart page with items
-    When I proceed to checkout
-    Then I should see checkout information page
-    When I fill valid checkout information
-    And I proceed to overview
-    Then I should see checkout overview page

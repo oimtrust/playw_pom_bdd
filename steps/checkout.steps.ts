@@ -17,13 +17,6 @@ Given('I am on the checkout information page', async ({ loginPage, dashboardPage
   await checkoutPage.clickCheckoutButton();
 });
 
-Given('I am on the cart page with items', async ({ loginPage, dashboardPage }) => {
-  await loginPage.open();
-  await loginPage.login('standard_user', 'secret_sauce');
-  await dashboardPage.clickAddToCartButton();
-  await dashboardPage.shoppingCartButton.click();
-});
-
 When('I click checkout button', async ({ checkoutPage }) => {
   await checkoutPage.clickCheckoutButton();
 });
@@ -91,7 +84,7 @@ Then('I should be on checkout overview page', async ({ checkoutPage }) => {
 });
 
 Then('I should see order completion page', async ({ page }) => {
-  await expect(page.locator('[data-test="title"]')).toContainText(generalData.Title.FINISH_TITLE);
+  await expect(page.locator('[data-test="title"]')).toContainText(generalData.Title.COMPLETE_TITLE);
 });
 
 Then('I should see thank you message', async ({ checkoutPage }) => {

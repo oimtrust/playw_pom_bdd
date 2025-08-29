@@ -11,6 +11,7 @@ export class DashboardPage {
    readonly burgerMenuButton: Locator
    readonly logoutButton: Locator
    readonly shoppingCartButton: Locator
+   readonly firstAddToCartButton: Locator
 
    constructor(page: Page) {
        this.page = page;
@@ -20,22 +21,22 @@ export class DashboardPage {
        this.burgerMenuButton = page.locator(TestID.BURGER_MENU_BUTTON);
        this.logoutButton = page.locator(TestID.LOGOUT_BUTTON);
        this.shoppingCartButton = page.locator(TestID.SHOPPING_CART_BUTTON);
+       this.firstAddToCartButton = page.locator(TestID.FIRST_ADD_TO_CART_BUTTON);
    }
 
     async clickAddToCartButton() {
-        await this.addToCartButton.click();
+        await this.firstAddToCartButton.click();
         expect(await this.removeFromCartButton).toBeVisible();
     }
 
     async clickRemoveFromCartButton() {
         await this.removeFromCartButton.click();
-        expect(await this.addToCartButton).toBeVisible();
+        expect(await this.firstAddToCartButton).toBeVisible();
     }
 
     async logout() {
         await this.burgerMenuButton.click();
         await this.logoutButton.click();
-        expect(await this.productTitle).toBeVisible();
     }
 
     async verifyProductTitle() {

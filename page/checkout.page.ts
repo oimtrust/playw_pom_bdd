@@ -5,6 +5,7 @@ import { TestID } from '@locator/checkout.locator';
 
 export class CheckoutPage {
     readonly page: Page
+    readonly productTitle: Locator
     readonly checkoutButton: Locator
     readonly yourCartTitle: Locator
     readonly checkoutInformationTitle: Locator
@@ -18,6 +19,7 @@ export class CheckoutPage {
 
     constructor(page: Page) {
         this.page = page;
+        this.productTitle = page.locator(generalTestID.TestID.TITLE);
         this.checkoutButton = page.locator(cartTestID.TestID.CHECKOUT_BUTTON);
         this.yourCartTitle = page.locator(cartTestID.TestID.CHECKOUT_BUTTON);
         this.checkoutInformationTitle = page.locator(generalTestID.TestID.TITLE);
@@ -35,7 +37,7 @@ export class CheckoutPage {
         expect(await this.checkoutInformationTitle).toBeVisible();
     }
 
-    async fillCheckoutInformation(firstName, lastName, postalCode) {
+    async fillCheckoutInformation(firstName: string, lastName: string, postalCode: string) {
         await this.firstNameInput.fill(firstName);
         await this.lastNameInput.fill(lastName);
         await this.postalCodeInput.fill(postalCode);
@@ -53,7 +55,7 @@ export class CheckoutPage {
 
     async clickBackHomeButton() {
         await this.backHomeButton.click();
-        expect(await this.yourCartTitle).toBeVisible();
+        expect(await this.productTitle).toBeVisible();
     }
 
 }

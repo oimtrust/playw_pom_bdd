@@ -13,7 +13,7 @@ export class LoginPage {
 
    constructor(page: Page) {
        this.page = page;
-       this.logo = page.locator(TestID.LOGIN_LOGO);
+       this.logo = page.getByText(TestID.LOGIN_LOGO);
        this.usernameInput = page.locator(TestID.USERNAME_INPUT);
        this.passwordInput = page.locator(TestID.PASSWORD_INPUT);
        this.loginButton = page.locator(TestID.LOGIN_BUTTON);
@@ -24,11 +24,11 @@ export class LoginPage {
         await this.page.goto(`${process.env.BASE_URL}`);
     }
 
-    async verifyErrorMessage(message) {
+    async verifyErrorMessage(message: string) {
         await expect(this.errorMessage).toContainText(message);
     }
 
-    async login(username, password) {
+    async login(username: string, password: string) {
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();

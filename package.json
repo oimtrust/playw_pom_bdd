@@ -14,10 +14,10 @@
     "rimraf": "^6.0.1"
   },
   "scripts": {
-    "test": "npx playwright-bdd test",
-    "test:headed": "npx playwright-bdd test --headed",
+    "test": "PW_OPTIONS='--reporter=list' npx playwright-bdd test",
+    "test:headed": "PW_OPTIONS='--headed --reporter=list' npx playwright-bdd test",
     "test:ui": "npx playwright-bdd test && npx playwright test --ui",
-    "test:debug": "npx playwright-bdd test --debug",
+    "test:debug": "PW_OPTIONS='--debug' npx playwright-bdd test",
     "test:report": "allure generate allure-results --clean && allure open",
     "test:clean": "rimraf allure-results allure-report test-results",
     "install:browsers": "playwright install"

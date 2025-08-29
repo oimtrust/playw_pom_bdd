@@ -10,7 +10,9 @@ import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 const testDir = defineBddConfig({
-  // importTestFrom: 'steps/fixtures.ts',
+  aiFix: {
+    promptAttachment: true,
+  },
   paths: ['features/*.feature'],
   require: ['steps/**/*.ts'],
 });
@@ -30,7 +32,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter:  [
-    ['html'],
+    ['html', 'list'],
     ['allure-playwright', {
       detail: true,
       outputFolder: process.env.ALLURE_RESULTS_DIR || 'allure-results',
